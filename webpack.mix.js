@@ -16,11 +16,11 @@ mix.styles([
 
 mix.scripts([
 
-    "resources/js/libs/jquery.js",
-    "resources/js/libs/bootstrap.js",
-    "resources/js/libs/metisMenu.js",
-    "resources/js/libs/sb-admin-2.js",
-    "resources/js/libs/bootstrap.min.js",
-    "resources/js/libs/scripts.js",
+    "resources/js/jquery.js",
+    "resources/js/bootstrap.js",
+    "resources/js/metisMenu.js",
+    "resources/js/sb-admin-2.js",
+    "resources/js/bootstrap.min.js",
+    "resources/js/scripts.js",
 
 ] , "public/js/libs.js")
