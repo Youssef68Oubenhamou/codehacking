@@ -12,8 +12,9 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Full Name</th>
-                    <th scope="col">Email</th>
                     <th scope="col">Role</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Created At</th>
                 </tr>
             </thead>
@@ -22,8 +23,9 @@
                 <tr>
                     <th scope="row">{{$user->id}}</th>
                     <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
                     <td>{{$user->role->name}}</td>
+                    <td>{{ $user->is_active ? "Active" : "Not Active" }}</td>
+                    <td>{{$user->email}}</td>
                     <td>{{$user->created_at->diffForHumans()}}</td>
                 </tr>
                 @endforeach
