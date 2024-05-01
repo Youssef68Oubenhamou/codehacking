@@ -24,7 +24,9 @@ class AdminUsersController extends Controller
     public function create()
     {
         
-        return view("admin.users.create") ;
+        $roles = \App\Models\Role::all() ;
+
+        return view("admin.users.create" , compact("roles")) ;
 
     }
 
