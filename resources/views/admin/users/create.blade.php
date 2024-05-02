@@ -47,22 +47,16 @@
             <input type="password" name="password" id="password" placeholder="Enter user's password..." class="form-control" />
         
         </div>
+        <div class="mb-3">
+            
+            <label for="file" class="form-label" >Upload Your Profile Image</label>
+            <input type="file" name="file" id="file" class="form-control" />
+        
+        </div>
 
         <input type="submit" value="Create" class="btn btn-primary" />
 
-        @if(count($errors->all()))
-        
-            <div class="alert alert-danger">
-    
-                @foreach($errors->all() as $error)
-    
-                    <li>{{ $error }}</li>
-    
-                @endforeach
-    
-            </div>
-    
-        @endif
+        @include("includes.formErrorTemplate")
         
     </form>
 
