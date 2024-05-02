@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\UsersCreateRequest ;
+
 class AdminUsersController extends Controller
 {
     /**
@@ -33,7 +35,7 @@ class AdminUsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UsersCreateRequest $request)
     {
         
         return $request->all() ;

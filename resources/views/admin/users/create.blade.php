@@ -19,7 +19,7 @@
         <div class="mb-3">
             
             <label for="roleid" class="form-label" >Role</label>
-            <select class="form-select">
+            <select name="role" id="role" class="form-select">
                 @foreach($roles as $role)
                     <option value="{{$role->id}}" name="role" id="role" class="form-control" value>{{ $role->name }}</option>
                 @endforeach
@@ -29,7 +29,7 @@
         <div class="mb-3">
             
             <label for="status" class="form-label" >Status</label>
-            <select class="form-select">
+            <select name="status" id="status" class="form-select">
                 <option value="1" name="status1" id="status1" class="form-control">Active</option>
                 <option value="0" name="status2" id="status2" class="form-control" selected >Not Active</option>
             </select>
@@ -50,6 +50,21 @@
 
         <input type="submit" value="Create" class="btn btn-primary" />
 
+        @if(count($errors->all()))
+        
+            <div class="alert alert-danger">
+    
+                @foreach($errors->all() as $error)
+    
+                    <li>{{ $error }}</li>
+    
+                @endforeach
+    
+            </div>
+    
+        @endif
+        
     </form>
+
 
 @endsection
