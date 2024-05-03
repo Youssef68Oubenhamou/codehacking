@@ -6,7 +6,7 @@
         Create User
     </h1>
 
-    <form method="post" class="mx-5" action="/admin/users">
+    <form method="post" class="mx-5" action="/admin/users" enctype="multipart/form-data">
 
         @csrf
         
@@ -18,10 +18,10 @@
         </div>
         <div class="mb-3">
             
-            <label for="roleid" class="form-label" >Role</label>
-            <select name="role" id="role" class="form-select">
+            <label for="role_id" class="form-label" >Role</label>
+            <select name="role_id" id="role_id" class="form-select">
                 @foreach($roles as $role)
-                    <option value="{{$role->id}}" name="role" id="role" class="form-control" value>{{ $role->name }}</option>
+                    <option value="{{$role->id}}" name="role_id" id="role" class="form-control" value>{{ $role->name }}</option>
                 @endforeach
             </select>
         
@@ -29,9 +29,9 @@
         <div class="mb-3">
             
             <label for="status" class="form-label" >Status</label>
-            <select name="status" id="status" class="form-select">
-                <option value="1" name="status1" id="status1" class="form-control">Active</option>
-                <option value="0" name="status2" id="status2" class="form-control" selected >Not Active</option>
+            <select name="is_active" id="status" class="form-select">
+                <option value="1" name="is_active" id="status1" class="form-control">Active</option>
+                <option value="0" name="is_active" id="status2" class="form-control" selected >Not Active</option>
             </select>
         
         </div>

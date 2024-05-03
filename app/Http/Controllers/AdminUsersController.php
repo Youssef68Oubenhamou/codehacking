@@ -38,7 +38,11 @@ class AdminUsersController extends Controller
     public function store(UsersCreateRequest $request)
     {
         
-        return $request->all() ;
+        \App\Models\User::create($request->all()) ;
+
+        return redirect("/admin/users") ;
+        
+        // return $request->all() ;
 
     }
 
@@ -47,7 +51,7 @@ class AdminUsersController extends Controller
      */
     public function show(string $id)
     {
-        
+
         return view("admin.users.show") ;
 
     }
@@ -59,7 +63,7 @@ class AdminUsersController extends Controller
     {
         
         return view("admin.users.edit") ;
-
+    
     }
 
     /**
