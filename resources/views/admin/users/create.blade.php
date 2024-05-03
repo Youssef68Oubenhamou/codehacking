@@ -49,8 +49,8 @@
         </div>
         <div class="mb-3">
             
-            <label for="file" class="form-label" >Upload Your Profile Image</label>
-            <input type="file" name="file" id="file" class="form-control" />
+            <label for="photo_id" class="form-label" >Upload Your Profile Image</label>
+            <input type="file" name="photo_id" id="photo_id" class="form-control" />
         
         </div>
 

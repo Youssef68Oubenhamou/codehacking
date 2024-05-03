@@ -34,8 +34,8 @@
                                     Users
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="#">All users</a></li>
-                                    <li><a class="dropdown-item" href="#">Create user</a></li>
+                                    <li><a class="dropdown-item" href="{{route('users.index')}}">All users</a></li>
+                                    <li><a class="dropdown-item" href="{{route('users.create')}}">Create user</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
