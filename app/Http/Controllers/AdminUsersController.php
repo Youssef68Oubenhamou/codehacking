@@ -42,9 +42,17 @@ class AdminUsersController extends Controller
 
         $therequest = $request->all() ;
 
-        if ($request->file("photo_id")) {
+        if ($file = $request->file("photo_id")) {
 
-            return "the photo in the request !" ;
+            $name = time() . $file->getClientOriginalName() ;
+
+            $file->move("uploads" , $name) ;
+
+            $photo = \App\Models\Photo::create(["path" => $name]) ;
+
+            $therequest["photo_id"] = $photo->id ;
+
+            \App\Models\User::create($therequest) ;
 
         }
 

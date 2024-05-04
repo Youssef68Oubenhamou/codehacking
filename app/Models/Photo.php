@@ -10,6 +10,12 @@ class Photo extends Model
 
     use HasFactory;
 
+    protected $fillable = [
+
+        "path"
+
+    ] ;
+
     public function user() {
 
         return $this->hasOne(\App\Models\User::class) ;
