@@ -8,6 +8,13 @@ use App\Http\Requests\UsersCreateRequest ;
 
 class AdminUsersController extends Controller
 {
+
+    public function __construct() {
+
+        $this->middleware('auth') ;
+
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -52,9 +59,9 @@ class AdminUsersController extends Controller
 
             $therequest["photo_id"] = $photo->id ;
 
-            \App\Models\User::create($therequest) ;
-
         }
+            
+        \App\Models\User::create($therequest) ;
 
         return redirect("/admin/users") ;
         
@@ -78,7 +85,9 @@ class AdminUsersController extends Controller
     public function edit(string $id)
     {
         
-        return view("admin.users.edit") ;
+        $roles = \App\Models\Role::all() ;
+
+        return view("admin.users.edit" , compact("roles" , "id")) ;
     
     }
 
@@ -87,7 +96,23 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        $user = \App\Models\User::findOrFail($id) ;
+
+        $therequest = $request->all() ;
+
+        if ($file = $therequest->fie("photo_id")) {
+
+            $name = time() . $file->getClientOriginalName() ;
+
+            $file->move("uploads" , $name) ;
+
+        }
+
+        $user->update($request->all()) ;
+
+        return redirect("admin/users") ;
+
     }
 
     /**

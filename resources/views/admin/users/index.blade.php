@@ -12,6 +12,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Full Name</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Role</th>
                     <th scope="col">Status</th>
                     <th scope="col">Email</th>
@@ -22,25 +23,14 @@
                 @foreach($users as $user)
                 <tr>
                     <th scope="row">{{$user->id}}</th>
-                    <td>{{$user->name}}</td>
+                    <td><a href="{{ route('users.edit' , $user->id) }}">{{$user->name}}</a></td>
+                    <td><img height="60" src="{{ $user->photo_id ? $user->photo->path : 'The user has no image!' }}"/></td>
                     <td>{{$user->role->name}}</td>
                     <td>{{ $user->is_active ? "Active" : "Not Active" }}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->created_at->diffForHumans()}}</td>
                 </tr>
                 @endforeach
-                <!-- <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr> -->
             </tbody>
         </table>
     </div>
