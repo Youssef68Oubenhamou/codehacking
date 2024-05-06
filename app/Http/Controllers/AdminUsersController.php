@@ -109,9 +109,13 @@ class AdminUsersController extends Controller
 
             $file->move("uploads" , $name) ;
 
-            if ($user->photo_id) {
+            if ($phID = $user->photo_id) {
 
-                \App\Models\Photo::update(["path" => $name]) ;
+                $photo = \App\Models\Photo::findOrFail($phID);
+
+                $photo['path'] = $name ;
+
+                $photo->save() ;
 
             } else {
 
@@ -120,11 +124,6 @@ class AdminUsersController extends Controller
                 $therequest["photo_id"] = $photo->id ;
 
             }
-
-            // \App\Models\User::create($therequest) ;
-
-            // return redirect("/admin/users") ;
-
 
         }
 
