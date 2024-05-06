@@ -85,9 +85,11 @@ class AdminUsersController extends Controller
     public function edit(string $id)
     {
         
+        $user = \App\Models\User::findOrFail($id) ;
+
         $roles = \App\Models\Role::all() ;
 
-        return view("admin.users.edit" , compact("roles" , "id")) ;
+        return view("admin.users.edit" , compact("roles" , "user")) ;
     
     }
 
@@ -101,15 +103,32 @@ class AdminUsersController extends Controller
 
         $therequest = $request->all() ;
 
-        if ($file = $therequest->fie("photo_id")) {
+        if ($file = $request->file("photo_id")) {
 
             $name = time() . $file->getClientOriginalName() ;
 
             $file->move("uploads" , $name) ;
 
+            if ($user->photo_id) {
+
+                \App\Models\Photo::update(["path" => $name]) ;
+
+            } else {
+
+                $photo = \App\Models\Photo::create(["path" => $name]) ;
+
+                $therequest["photo_id"] = $photo->id ;
+
+            }
+
+            \App\Models\User::create($therequest) ;
+
+            return redirect("/admin/users") ;
+
+
         }
 
-        $user->update($request->all()) ;
+        $user->update($therequest) ;
 
         return redirect("admin/users") ;
 
