@@ -25,7 +25,8 @@ class UsersCreateRequest extends FormRequest
             
             "name"=> "required" ,
             "email"=> "required" ,
-            "password"=> "required"
+            "password"=> "required",
+            "photo_id"=> "required"
 
         ];
     }

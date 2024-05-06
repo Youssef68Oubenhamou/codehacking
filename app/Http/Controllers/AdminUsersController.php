@@ -96,7 +96,7 @@ class AdminUsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UsersCreateRequest $request, string $id)
     {
         
         $user = \App\Models\User::findOrFail($id) ;
@@ -121,9 +121,9 @@ class AdminUsersController extends Controller
 
             }
 
-            \App\Models\User::create($therequest) ;
+            // \App\Models\User::create($therequest) ;
 
-            return redirect("/admin/users") ;
+            // return redirect("/admin/users") ;
 
 
         }

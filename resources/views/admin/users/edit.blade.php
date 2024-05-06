@@ -57,7 +57,7 @@
                 </div>
                 <div class="mb-3">
                     
-                    <label for="emaiil" class="form-label" >Email</label>
+                    <label for="email" class="form-label" >Email</label>
                     <input type="email" name="email" id="email" value="{{ $user->email }}" placeholder="Enter the email..." class="form-control" />
                 
                 </div>
@@ -75,14 +75,17 @@
                 </div>
     
                 <input type="submit" value="Update" class="btn btn-primary" />
-    
-                @include("includes.formErrorTemplate")
-                
+                    
             </form>
     
         </div>
 
     </div>
 
+    <div class="row m-5">
+
+        @include("includes.formErrorTemplate")
+
+    </div>
 
 @endsection
